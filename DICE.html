@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            height: 100vh;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            border: 5px solid skyblue;
+            width: 55%;
+            height: 70%;
+            border-radius: 40px;
+            color: white;
+            box-shadow: 10px 10px 100px skyblue;
+        }
+
+        #head {
+            font-size: 35px;
+            text-decoration: underline;
+            font-weight: 900;
+            text-shadow: 10px 10px 40px white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #result_dice {
+            font-size: 130px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 50px blue;
+            border: 4px solid blue;
+            width: 50%;
+            height: 40%;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #emoji {
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        #result_text {
+            font-size: 20px;
+            color: yellow;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 900;
+            text-shadow: 10px 10px 20px yellow;
+
+        }
+
+        #myButton {
+            background-color: yellow;
+            width: 50px;
+            height: 50px;
+            font-size: 34px;
+            border-radius: 50%;
+            color: crimson;
+            font-weight: 900;
+            box-shadow: 10px 10px 50px yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            margin-top: 30px;
+
+        }
+
+        #myButton:hover {
+            background-color: rgb(100, 100, 17);
+            width: 55px;
+            height: 55px;
+            margin-top: 30px;
+            font-size: 34px;
+            border-radius: 50%;
+            color: rgb(227, 159, 173);
+            font-weight: 900;
+            box-shadow: 10px 10px 50px yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    </style>
+
+    <title>⚅ DICE</title>
+</head>
+
+<body>
+    <div id="main">
+        <div id="head">
+            CHECK YOU LUCK
+        </div>
+
+
+        <div id="result_dice">
+            <span id="ani"></span>
+        </div>
+        <div id="emoji">
+            <!-- 😍 -->
+        </div>
+        <div id="result_text">
+            <!-- wow -->
+        </div>
+        <div>
+            <span style="color: white;"><span id="ct">ONLY ONE</span> CHANCE </span>
+            <span id="chance">0</span>
+            <span>/1</span><br><br>
+           <a href="" style="text-decoration: none;cursor: pointer;"><span id="r" style="color: rgb(12, 8, 219);font-size: 20px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 900;"></span></a>
+        </div>
+        <div id="button">
+            <button id="myButton" onclick="update()">⚅</button>
+        </div>
+
+
+    </div>
+</body>
+<script>
+
+    
+
+
+       
+
+
+    function update() {
+        var get_dice = document.querySelector("#result_dice");
+        var get_emoji = document.querySelector("#emoji");
+        var get_text = document.querySelector("#result_text");
+        const now = new Date();
+        const seconds = now.getSeconds();
+
+        var no = seconds / 10;
+
+        var result = (~~no) + 1;
+
+
+        if (result == 1) {
+            get_dice.textContent = "⚀";
+            get_emoji.textContent = "😂";
+            get_text.textContent = "BAD LUCK";
+      
+
+        } else {
+            if (result == 2) {
+                get_dice.textContent = "⚂";
+                get_emoji.textContent = "😁";
+                get_text.textContent = "NOT BAD";
+              
+            } else {
+                if (result == 3) {
+                    get_dice.textContent = "⚁";
+                    get_emoji.textContent = "😐";
+                    get_text.textContent = "TRY NEXT TIME";
+               
+                } else {
+                    if (result == 4) {
+                        get_dice.textContent = "⚃";
+                        get_emoji.textContent = "😅";
+                        get_text.textContent = "WOW";
+                   
+                    } else {
+                        if (result == 5) {
+                            get_dice.textContent = "⚅";
+                            get_emoji.textContent = "😱";
+                            get_text.textContent = "UNBELIEVABLE";
+                     
+                        } else {
+                            if (result == 6) {
+                                get_dice.textContent = "⚄";
+                                get_emoji.textContent = "😨";
+                                get_text.textContent = "YOU ARE LUCKY";
+                            
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        document.querySelector("#ct").textContent="NO";
+        document.querySelector("#chance").textContent="";
+        document.querySelector("#chance").textContent="1";
+        document.querySelector("#r").textContent="RELOAD PAGE TO PLAY AGAIN";
+document.querySelector("#myButton").onclick=null;
+    }
+
+
+
+ 
+</script>
+
+</html>
